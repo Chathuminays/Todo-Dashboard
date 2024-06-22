@@ -4,7 +4,7 @@ import dashbord from '../assets/icon.svg';
 const SideBar = ({ isOpen }) => {
   return (
     <>
-        <div className={`w-64 bg-purple fixed h-full xs:mt-20 lg:mt-0 transition-transform duration-300 ${isOpen ? 'transform-none' : '-translate-x-full'} lg:translate-x-0`}>
+        <div className={`w-64 z-50 bg-purple fixed h-full xs:mt-20 lg:mt-0 transition-transform duration-300 ${isOpen ? 'transform-none' : '-translate-x-full'} lg:translate-x-0`}>
             <div className='h-20 bg-purple_light flex items-center justify-center'>
                 <h3 className='text-white font-semibold text-2xl'>Acmy Solutions</h3>
             </div>

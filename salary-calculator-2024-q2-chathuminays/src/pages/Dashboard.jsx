@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import design from '../assets/design.svg';
-import { IoMdClose } from "react-icons/io";
+import { IoMdClose, IoIosArrowBack, IoIosArrowForward  } from "react-icons/io";
 import axios from 'axios';
 import ContentBox from '../components/ContentBox';
 import CompleteTodo from '../components/CompleteTodo';
@@ -9,6 +9,8 @@ import InProgressTodo from '../components/InProgressTodo';
 const Dashboard = () => {
 
   const [todos, setTodos] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const todosPerPage = 8;
 
   useEffect(() => {
     const fetchTodos = async () => {
@@ -26,6 +28,32 @@ const Dashboard = () => {
   const formatDate = (isoDate) => {
     const date = new Date(isoDate);
     return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+  };
+
+  const indexOfLastTodo = currentPage * todosPerPage;
+  const indexOfFirstTodo = indexOfLastTodo - todosPerPage;
+  const currentTodos = todos.slice(indexOfFirstTodo, indexOfLastTodo);
+
+  const paginate = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  const totalPages = Math.ceil(todos.length / todosPerPage);
+  const getPageNumbers = () => {
+    const maxPageNumbersToShow = 3;
+    let startPage = Math.max(currentPage - 1, 1);
+    let endPage = startPage + maxPageNumbersToShow - 1;
+
+    if (endPage > totalPages) {
+      endPage = totalPages;
+      startPage = Math.max(endPage - maxPageNumbersToShow + 1, 1);
+    }
+
+    const pageNumbers = [];
+    for (let i = startPage; i <= endPage; i++) {
+      pageNumbers.push(i);
+    }
+    return pageNumbers;
   };
 
   return (
@@ -50,8 +78,8 @@ const Dashboard = () => {
                             <p className='w-14 mr-8'>Priority</p>
                             <p>Date</p>
                         </div>
-                        <div>
-                            {todos.map(todo => (
+                        <div className='h-80 overflow-y-auto'>
+                            {currentTodos.map(todo => (
                             todo.completed ? (
                                 <CompleteTodo
                                 key={todo.id}
@@ -70,6 +98,31 @@ const Dashboard = () => {
                                 />
                             )
                             ))}
+                        </div>
+                        <div className='flex justify-center mt-3 pb-2'>
+                            <button
+                            onClick={() => paginate(currentPage > 1 ? currentPage - 1 : 1)}
+                            className={`bg-white border border-[#EFEFEF] rounded-md px-2 py-1 mr-2 ${currentPage === 1 ? 'opacity-50 cursor-not-allowed' : ''}`}
+                            disabled={currentPage === 1}
+                            >
+                            <IoIosArrowBack />
+                            </button>
+                            {getPageNumbers().map(pageNumber => (
+                                <button
+                                key={pageNumber}
+                                onClick={() => paginate(pageNumber)}
+                                className={`bg-white border border-[#EFEFEF] rounded-md px-3 py-1 mx-1 ${currentPage === pageNumber ? 'bg-white text-text_pink border-text_pink' : ''}`}
+                                >
+                                {pageNumber}
+                                </button>
+                            ))}
+                            <button
+                                onClick={() => paginate(currentPage < totalPages ? currentPage + 1 : currentPage)}
+                                className={`bg-white border border-[#EFEFEF] rounded-md px-2 py-1 ml-2 ${currentPage === totalPages ? 'opacity-50 cursor-not-allowed' : ''}`}
+                                disabled={currentPage === totalPages}
+                            >
+                                <IoIosArrowForward />
+                            </button>
                         </div>
                     </ContentBox>
                 </div>
