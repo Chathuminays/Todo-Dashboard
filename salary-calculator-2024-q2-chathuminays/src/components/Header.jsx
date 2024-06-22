@@ -6,7 +6,7 @@ import { IoIosArrowDown, IoIosMenu, IoIosClose } from "react-icons/io";
 const Header = ({ isOpen, toggleSidebar }) => {
   return (
     <>
-        <div className='h-20 flex items-center justify-between lg:ml-72 lg:px-10'>
+        <div className='h-20 flex items-center justify-between lg:ml-64 lg:px-5'>
             <div className='flex items-center gap-2'>
                 <div className='flex items-center gap-2 lg:hidden'>
                     {isOpen ? (
