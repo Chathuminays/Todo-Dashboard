@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import SideBar from '../components/SideBar';
+import Header from '../components/Header';
 import design from '../assets/design.svg';
 import pro1 from '../assets/pro1.png';
 import pro2 from '../assets/pro2.png';
@@ -12,9 +14,14 @@ import ActivityItem from '../components/ActivityItem';
 
 const Dashboard = () => {
 
+  const [isVisible, setIsVisible] = useState(true);
   const [todos, setTodos] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const todosPerPage = 8;
+
+  const handleClose = () => {
+    setIsVisible(false);
+  };
 
   useEffect(() => {
     const fetchTodos = async () => {
@@ -88,18 +95,24 @@ const Dashboard = () => {
 
   return (
     <>
+        <SideBar />
+
+        <Header />
+
         <div className='bg-background lg:ml-64 h-full px-5 py-5'>
-            <div className='bg-white border border-stroke px-5 py-4 relative rounded-lg'>
-                <h3 className='font-semibold text-2xl mb-1'>Welcome back, John Doe</h3>
-                <p className='text-text_grey text-base mb-1'>The end of the year is coming. Are you planning your performance interviews? You can do this super efficiently with Acmy.</p>
-                <a href="" className='text-text_pink underline text-sm'>Look here for more information</a>
-                <img src={design} alt="" className='absolute top-0 bottom-0 right-20 object-contain'/>
-                <IoMdClose className='absolute top-4 right-5 text-text_gray'/>
-            </div>
+          {isVisible && (
+              <div className='bg-white border border-stroke px-5 py-4 relative rounded-lg mb-5'>
+                  <h3 className='font-semibold text-2xl mb-1'>Welcome back, John Doe</h3>
+                  <p className='text-text_grey text-base mb-1'>The end of the year is coming. Are you planning your performance interviews? You can do this super efficiently with Acmy.</p>
+                  <a href="" className='text-text_pink underline text-sm'>Look here for more information</a>
+                  <img src={design} alt="" className='absolute top-0 bottom-0 right-20 object-contain'/>
+                  <IoMdClose className='absolute top-4 right-5 text-text_gray hover:cursor-pointer' onClick={handleClose}/>
+              </div>
+            )}
 
             <div className='grid grid-cols-5'>
 
-                <div className='xs:col-span-5 lg:col-span-3 py-5 lg:pr-3'>
+                <div className='xs:col-span-5 lg:col-span-3 pb-2 lg:pr-3'>
                     <ContentBox title="Tasks">
                         <div className='h-12 bg-bg_grey border-b border-stroke flex items-center px-3 text-xs font-medium'>
                             <p className='w-5 mr-10'>Status</p>
@@ -108,7 +121,7 @@ const Dashboard = () => {
                             <p className='w-14 mr-8'>Priority</p>
                             <p>Date</p>
                         </div>
-                        <div className='h-[590px] overflow-y-auto'>
+                        <div className='h-[450px] overflow-y-auto'>
                             {currentTodos.map(todo => (
                             todo.completed ? (
                                 <CompleteTodo
@@ -157,13 +170,16 @@ const Dashboard = () => {
                     </ContentBox>
                 </div>
 
-                <div className='xs:col-span-5 lg:col-span-2 py-5 lg:pl-2'>
+                <div className='xs:col-span-5 lg:col-span-2 pb-2 lg:pl-2'>
+
                     <ContentBox title="Tasks Priorities">
                         <BarChart lowCount={lowCount} mediumCount={mediumCount} highCount={highCount}/>
                     </ContentBox>
-                    <div className='my-6'></div>
+
+                    <div className='my-2'></div>
+
                     <ContentBox title="Activity Feed">
-                      <div className='h-[370px] px-3 overflow-y-auto'>
+                      <div className='h-[245px] px-3 overflow-y-auto'>
                       <div className='flex items-start justify-between py-3 border-b border-stroke'>
                         <img src={pro1} alt="" />
                         <div className='ml-3'>

@@ -2,18 +2,18 @@ import React from 'react';
 import { FaRegBell } from "react-icons/fa";
 import profile from '../assets/profile.svg';
 import { IoIosArrowDown, IoIosMenu, IoIosClose } from "react-icons/io";
+import { useSidebar } from '../context/SidebarContext';
 
-const Header = ({ isOpen, toggleSidebar }) => {
+const Header = () => {
+
+  const { isOpen, toggleSidebar } = useSidebar();
+
   return (
     <>
         <div className='h-20 flex items-center justify-between lg:ml-64 px-5'>
             <div className='flex items-center gap-2'>
                 <div className='flex items-center gap-2 lg:hidden'>
-                    {isOpen ? (
-                    <IoIosClose className='w-6 h-6' onClick={toggleSidebar} />
-                    ) : (
                     <IoIosMenu className='w-6 h-6' onClick={toggleSidebar} />
-                    )}
                 </div>
                 <h4 className='font-semibold text-xl'>Dashboard</h4>
             </div>
