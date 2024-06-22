@@ -5,6 +5,7 @@ import axios from 'axios';
 import ContentBox from '../components/ContentBox';
 import CompleteTodo from '../components/CompleteTodo';
 import InProgressTodo from '../components/InProgressTodo';
+import BarChart from '../components/BarChart';
 
 const Dashboard = () => {
 
@@ -56,6 +57,32 @@ const Dashboard = () => {
     return pageNumbers;
   };
 
+  const calculatePriorityCounts = () => {
+    let lowCount = 0;
+    let mediumCount = 0;
+    let highCount = 0;
+
+    todos.forEach(todo => {
+      switch (todo.priority) {
+        case 'LOW':
+          lowCount++;
+          break;
+        case 'MEDIUM':
+          mediumCount++;
+          break;
+        case 'HIGH':
+          highCount++;
+          break;
+        default:
+          break;
+      }
+    });
+
+    return { lowCount, mediumCount, highCount };
+  };
+
+  const { lowCount, mediumCount, highCount } = calculatePriorityCounts();
+
   return (
     <>
         <div className='bg-background lg:ml-64 h-full px-5 py-5'>
@@ -78,7 +105,7 @@ const Dashboard = () => {
                             <p className='w-14 mr-8'>Priority</p>
                             <p>Date</p>
                         </div>
-                        <div className='h-80 overflow-y-auto'>
+                        <div className='h-[590px] overflow-y-auto'>
                             {currentTodos.map(todo => (
                             todo.completed ? (
                                 <CompleteTodo
@@ -99,7 +126,7 @@ const Dashboard = () => {
                             )
                             ))}
                         </div>
-                        <div className='flex justify-center mt-3 pb-2'>
+                        <div className='flex justify-center mt-2 pb-2'>
                             <button
                             onClick={() => paginate(currentPage > 1 ? currentPage - 1 : 1)}
                             className={`bg-white border border-[#EFEFEF] rounded-md px-2 py-1 mr-2 ${currentPage === 1 ? 'opacity-50 cursor-not-allowed' : ''}`}
@@ -127,6 +154,11 @@ const Dashboard = () => {
                     </ContentBox>
                 </div>
 
+                <div className='xs:col-span-5 lg:col-span-2 py-5 lg:pl-2'>
+                    <ContentBox title="Tasks Priorities">
+                        <BarChart lowCount={lowCount} mediumCount={mediumCount} highCount={highCount}/>
+                    </ContentBox>
+                </div>
             </div>
         </div>
     </>
