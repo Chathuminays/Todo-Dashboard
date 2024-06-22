@@ -10,7 +10,7 @@ const Header = () => {
 
   return (
     <>
-        <div className='h-20 flex items-center justify-between lg:ml-64 px-5'>
+        <div className='h-20 flex items-center justify-between xl:ml-56 2xl:ml-64 px-5'>
             <div className='flex items-center gap-2'>
                 <div className='flex items-center gap-2 lg:hidden'>
                     <IoIosMenu className='w-6 h-6' onClick={toggleSidebar} />
