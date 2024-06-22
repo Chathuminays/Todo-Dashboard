@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import design from '../assets/design.svg';
+import pro1 from '../assets/pro1.png';
+import pro2 from '../assets/pro2.png';
 import { IoMdClose, IoIosArrowBack, IoIosArrowForward  } from "react-icons/io";
 import axios from 'axios';
 import ContentBox from '../components/ContentBox';
 import CompleteTodo from '../components/CompleteTodo';
 import InProgressTodo from '../components/InProgressTodo';
 import BarChart from '../components/BarChart';
+import ActivityItem from '../components/ActivityItem';
 
 const Dashboard = () => {
 
@@ -86,12 +89,12 @@ const Dashboard = () => {
   return (
     <>
         <div className='bg-background lg:ml-64 h-full px-5 py-5'>
-            <div className='bg-white border border-stroke px-3 py-3 relative'>
-                <h3 className='font-semibold text-xl'>Welcome back, John Doe</h3>
-                <p className='text-text_grey text-sm'>The end of the year is coming. Are you planning your performance interviews? You can do this super efficiently with Acmy.</p>
+            <div className='bg-white border border-stroke px-5 py-4 relative rounded-lg'>
+                <h3 className='font-semibold text-2xl mb-1'>Welcome back, John Doe</h3>
+                <p className='text-text_grey text-base mb-1'>The end of the year is coming. Are you planning your performance interviews? You can do this super efficiently with Acmy.</p>
                 <a href="" className='text-text_pink underline text-sm'>Look here for more information</a>
-                <img src={design} alt="" className='absolute top-0 bottom-0 right-20 w-24 h-24 object-fit'/>
-                <IoMdClose className='absolute top-3 right-3 text-text_gray'/>
+                <img src={design} alt="" className='absolute top-0 bottom-0 right-20 object-contain'/>
+                <IoMdClose className='absolute top-4 right-5 text-text_gray'/>
             </div>
 
             <div className='grid grid-cols-5'>
@@ -158,7 +161,40 @@ const Dashboard = () => {
                     <ContentBox title="Tasks Priorities">
                         <BarChart lowCount={lowCount} mediumCount={mediumCount} highCount={highCount}/>
                     </ContentBox>
+                    <div className='my-6'></div>
+                    <ContentBox title="Activity Feed">
+                      <div className='h-[370px] px-3 overflow-y-auto'>
+                      <div className='flex items-start justify-between py-3 border-b border-stroke'>
+                        <img src={pro1} alt="" />
+                        <div className='ml-3'>
+                          <p className='text-base'><span className='font-semibold'>Kushantha Charuka</span> created <span className='text-text_pink'>Contract #00124 need John Beige’s signature</span></p>
+                          <p className='text-sm text-text_grey'>Sep 16, 2022 at 11:30 AM</p>
+                        </div>
+                      </div>
+                      <ActivityItem
+                        img={pro2} 
+                        text={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pretium neque'}
+                        date={'Sep 16, 2022 at 11:45 AM'}
+                      />
+                      <ActivityItem
+                        img={pro2} 
+                        text={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pretium neque'}
+                        date={'Sep 16, 2022 at 11:45 AM'}
+                      />
+                      <ActivityItem
+                        img={pro2} 
+                        text={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pretium neque'}
+                        date={'Sep 16, 2022 at 11:45 AM'}
+                      />
+                      <ActivityItem
+                      img={pro2} 
+                      text={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pretium neque'}
+                      date={'Sep 16, 2022 at 11:45 AM'}
+                      />
+                      </div>  
+                    </ContentBox>
                 </div>
+
             </div>
         </div>
     </>
