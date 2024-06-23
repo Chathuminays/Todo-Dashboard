@@ -27,7 +27,7 @@ const InProgressTodo = ({ todo, priority, createdBy, date }) => {
                 </div>
             </div>
             <div className='col-span-4'>
-                <p className=''>{todo}</p>
+                <p className='font-medium pr-3'>{todo}</p>
                 <button className='text-xs text-text_pink font-medium'>
                     Mark as done
                 </button>

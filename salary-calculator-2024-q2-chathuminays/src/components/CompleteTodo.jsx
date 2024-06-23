@@ -27,7 +27,7 @@ const CompleteTodo = ({ todo, priority, createdBy, date }) => {
                 </div>
             </div>
             <div className='col-span-4'>
-                <p>{todo}</p>
+                <p className='font-medium pr-3'>{todo}</p>
             </div>
             <div className='col-span-2 ml-2'>
                 <p>{createdBy}</p>

@@ -4,6 +4,9 @@ import Header from '../components/Header';
 import design from '../assets/design.svg';
 import pro1 from '../assets/pro1.png';
 import pro2 from '../assets/pro2.png';
+import pro3 from '../assets/pro3.png';
+import pro4 from '../assets/pro4.png';
+import pro5 from '../assets/pro5.png';
 import { IoMdClose, IoIosArrowBack, IoIosArrowForward  } from "react-icons/io";
 import axios from 'axios';
 import ContentBox from '../components/ContentBox';
@@ -100,13 +103,14 @@ const Dashboard = () => {
         <Header />
 
         <div className='bg-background lg:ml-64 xl:ml-56 2xl:ml-64 h-full xs:px-5 xl:px-2 2xl:px-5 py-5'>
+          
           {isVisible && (
               <div className='bg-white border border-stroke px-5 py-4 relative rounded-lg mb-5'>
                   <h3 className='font-semibold xs:text-2xl xl:text-xl 2xl:text-2xl mb-1'>Welcome back, John Doe</h3>
                   <p className='text-text_grey xl:text-sm 2xl:text-base mb-1'>The end of the year is coming. Are you planning your performance interviews? You can do this super efficiently with Acmy.</p>
                   <a href="" className='text-text_pink underline xl:text-sm'>Look here for more information</a>
-                  <img src={design} alt="" className='absolute top-0 bottom-0 xs:right-8 md:right-20 object-cover'/>
-                  <IoMdClose className='absolute top-4 right-5 text-text_gray hover:cursor-pointer' onClick={handleClose}/>
+                  <img src={design} alt="" className='absolute top-0 xs:right-0 sm:right-5 md:right-20 object-contain h-full'/>
+                  <IoMdClose className='absolute xs:top-2 xs:right-2 md:top-4 md:right-5 text-text_gray hover:cursor-pointer' onClick={handleClose}/>
               </div>
             )}
 
@@ -190,33 +194,53 @@ const Dashboard = () => {
 
                     <ContentBox title="Activity Feed">
                       <div className='xs:h-[300px] xl:h-[280px] 2xl:h-[245px] px-3 overflow-y-auto'>
-                      <div className='flex items-start justify-start md:gap-3 py-3 border-b border-stroke'>
-                        <img src={pro1} alt="" />
-                        <div className='ml-3'>
-                          <p className='text-base'><span className='font-semibold'>Kushantha Charuka</span> created <span className='text-text_pink'>Contract #00124 need John Beige’s signature</span></p>
-                          <p className='text-sm text-text_grey'>Sep 16, 2022 at 11:30 AM</p>
-                        </div>
-                      </div>
-                      <ActivityItem
-                        img={pro2} 
-                        text={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pretium neque'}
+                        <ActivityItem
+                          img={pro1} 
+                          text={
+                            <>
+                              <span className='font-semibold'>Kushantha Charuka</span> created <span className='text-text_pink'>Contract #00124 need John Beige’s signature</span>
+                            </>
+                          }
+                          date={'Sep 16, 2022 at 11:45 AM'}
+                        />
+                        <ActivityItem
+                          img={pro2} 
+                          text={
+                            <>
+                              <span className="font-semibold">Kumari Liyanage</span>  submitted the final report for  <span className="text-text_pink">Review #00789</span>.
+                            </>
+                          }
+                          date={'Sep 16, 2022 at 11:45 AM'}
+                        />
+                        <ActivityItem
+                          img={pro3} 
+                          text={
+                            <>
+                              <span className="font-semibold">Nimal Perera</span> created <span className="text-text_pink">Contract #00124 </span>and sent it for review.
+                            </>
+                          }
+                          date={'Sep 16, 2022 at 11:45 AM'}
+                            
+                        />
+                        <ActivityItem
+                          img={pro4} 
+                          text={
+                            <>
+                              <span className="font-semibold">Saman Kumara</span> approved the proposal for <span className="text-text_pink">Project #00345. </span>The project is scheduled to start next week.
+                            </>
+                          }
+                          date={'Sep 16, 2022 at 11:45 AM'}
+                             
+                        />
+                        <ActivityItem
+                        img={pro5} 
+                        text={
+                          <>
+                            Assigned <span className="text-text_pink">Task #00456 </span> to <span className='font-medium'> Ananda Rajapaksa</span>. Develop new features for upcoming software release.
+                          </>
+                        }
                         date={'Sep 16, 2022 at 11:45 AM'}
-                      />
-                      <ActivityItem
-                        img={pro2} 
-                        text={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pretium neque'}
-                        date={'Sep 16, 2022 at 11:45 AM'}
-                      />
-                      <ActivityItem
-                        img={pro2} 
-                        text={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pretium neque'}
-                        date={'Sep 16, 2022 at 11:45 AM'}
-                      />
-                      <ActivityItem
-                      img={pro2} 
-                      text={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pretium neque'}
-                      date={'Sep 16, 2022 at 11:45 AM'}
-                      />
+                        />
                       </div>  
                     </ContentBox>
                 </div>

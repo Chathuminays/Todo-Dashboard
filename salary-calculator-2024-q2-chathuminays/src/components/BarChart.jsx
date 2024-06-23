@@ -32,8 +32,8 @@ const BarChart = ({ lowCount, mediumCount, highCount }) => {
       },
     layout: {
     padding: {
-        left: 10,
-        right: 10,
+        left: 90,
+        right: 90,
         top: 10,
         bottom: 10,
     },
@@ -43,6 +43,7 @@ const BarChart = ({ lowCount, mediumCount, highCount }) => {
             borderRadius: 10,
         },
      },
+     barPercentage: 1,
   };
 
   return (
