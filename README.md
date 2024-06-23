@@ -8,24 +8,24 @@ Hello! My name is Chathumina Kumaranayake, and this is the To-Do Dashboard I hav
 Clone the project
 
 ```bash
-  git clone https://github.com/Chathuminays/salary-calculator-2024-Q2-Chathuminays.git
+git clone https://github.com/Chathuminays/salary-calculator-2024-Q2-Chathuminays.git
 ```
 
 Go to the project directory
 
 ```bash
-  cd salary-calculator-2024-q2-chathuminays
+cd salary-calculator-2024-q2-chathuminays
 ```
 
 Install dependencies
 
 ```bash
-  npm install
+npm install
 ```
 
 Start the server
 
 ```bash
-  npm run dev
+npm run dev
 ```
 
