@@ -10,12 +10,12 @@ const Header = () => {
 
   return (
     <>
-        <div className='h-20 flex items-center justify-between xl:ml-56 2xl:ml-64 px-5'>
+        <div className='h-20 flex items-center justify-between lg:ml-64 xl:ml-56 2xl:ml-64 px-5'>
             <div className='flex items-center gap-2'>
                 <div className='flex items-center gap-2 lg:hidden'>
                     <IoIosMenu className='w-6 h-6' onClick={toggleSidebar} />
                 </div>
-                <h4 className='font-semibold text-xl'>Dashboard</h4>
+                <h4 className='font-semibold text-xl xs:ml-2 lg:ml-0'>Dashboard</h4>
             </div>
             <div className='flex items-center gap-8'>
                 <FaRegBell />

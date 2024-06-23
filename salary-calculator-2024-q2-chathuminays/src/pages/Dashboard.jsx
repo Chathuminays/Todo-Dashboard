@@ -99,22 +99,22 @@ const Dashboard = () => {
 
         <Header />
 
-        <div className='bg-background xl:ml-56 2xl:ml-64 h-full xs:px-5 xl:px-2 2xl:px-5 py-5'>
+        <div className='bg-background lg:ml-64 xl:ml-56 2xl:ml-64 h-full xs:px-5 xl:px-2 2xl:px-5 py-5'>
           {isVisible && (
               <div className='bg-white border border-stroke px-5 py-4 relative rounded-lg mb-5'>
                   <h3 className='font-semibold xs:text-2xl xl:text-xl 2xl:text-2xl mb-1'>Welcome back, John Doe</h3>
                   <p className='text-text_grey xl:text-sm 2xl:text-base mb-1'>The end of the year is coming. Are you planning your performance interviews? You can do this super efficiently with Acmy.</p>
                   <a href="" className='text-text_pink underline xl:text-sm'>Look here for more information</a>
-                  <img src={design} alt="" className='absolute top-0 bottom-0 right-20 object-cover'/>
+                  <img src={design} alt="" className='absolute top-0 bottom-0 xs:right-8 md:right-20 object-cover'/>
                   <IoMdClose className='absolute top-4 right-5 text-text_gray hover:cursor-pointer' onClick={handleClose}/>
               </div>
             )}
 
             <div className='grid grid-cols-5'>
 
-                <div className='xs:col-span-5 lg:col-span-3 pb-2 xl:pr-0 2xl:pr-3'>
+                <div className='xs:col-span-5 xl:col-span-3 pb-2 xl:pr-0 2xl:pr-3'>
                     <ContentBox title="Tasks">
-                        <div className='h-12 bg-bg_grey border-b border-stroke flex items-center px-3 text-xs font-medium'>
+                        <div className='h-12 bg-bg_grey border-b border-stroke xs:hidden md:flex items-center px-3 text-xs font-medium'>
                             <p className='w-5 mr-10'>Status</p>
                             <p className='md:w-80 xl:w-48 2xl:w-80 md:mr-8 xl:mr-3 2xl:mr-8'>Task Name</p>
                             <p className='md:w-32 xl:w-20 xl:mr-3 md:mr-5 2xl:w-32 2xl:mr-5 -translate-x-5'>Created by</p>
@@ -170,13 +170,13 @@ const Dashboard = () => {
                     </ContentBox>
                 </div>
 
-                <div className='xs:col-span-5 lg:col-span-2 pb-2 xl:pl-2 md:mt-10 xl:mt-0'>
+                <div className='xs:col-span-5 xl:col-span-2 pb-2 xl:pl-2 xs:mt-5 xl:mt-0'>
 
                     <ContentBox title="Tasks Priorities">
                         <BarChart lowCount={lowCount} mediumCount={mediumCount} highCount={highCount}/>
                     </ContentBox>
 
-                    <div className='md:my-10 xl:my-3 2xl:my-2'></div>
+                    <div className='xs:my-5 xl:my-3 2xl:my-2'></div>
 
                     <ContentBox title="Activity Feed">
                       <div className='xl:h-[280px] 2xl:h-[245px] px-3 overflow-y-auto'>
