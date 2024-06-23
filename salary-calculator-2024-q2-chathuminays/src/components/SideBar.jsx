@@ -26,7 +26,7 @@ const SideBar = () => {
                 <h3 className='text-white font-semibold xs:text-xl lg:text-2xl'>Acmy Solutions</h3>
             </div>
 
-            <div className='flex items-center xs:w-60 xl:w-52 2xl:w-60 h-10 py-3 px-3 mx-auto mt-10 gap-5 bg-purple_light rounded-full'>
+            <div className='flex items-center xs:w-56 xl:w-52 2xl:w-56 h-10 py-3 px-4 mx-auto mt-10 gap-4 bg-purple_light rounded-full cursor-pointer'>
                 <img src={dashbord} alt="" />
                 <p className='text-white'>Dashborad</p>
             </div>
