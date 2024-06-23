@@ -114,12 +114,22 @@ const Dashboard = () => {
 
                 <div className='xs:col-span-5 xl:col-span-3 pb-2 xl:pr-0 2xl:pr-3'>
                     <ContentBox title="Tasks">
-                        <div className='h-12 bg-bg_grey border-b border-stroke xs:hidden md:flex items-center px-3 text-xs font-medium'>
-                            <p className='w-5 mr-10'>Status</p>
-                            <p className='md:w-80 xl:w-48 2xl:w-80 md:mr-8 xl:mr-3 2xl:mr-8'>Task Name</p>
-                            <p className='md:w-32 xl:w-20 xl:mr-3 md:mr-5 2xl:w-32 2xl:mr-5 -translate-x-5'>Created by</p>
-                            <p className='w-14 mr-8 -translate-x-5'>Priority</p>
-                            <p>Date</p>
+                        <div className='h-12 bg-bg_grey border-b border-stroke xs:hidden md:grid grid-cols-9 items-center px-3 text-xs font-medium'>
+                            <div className='col-span-1'>
+                              <p>Status</p>
+                            </div>
+                            <div className='col-span-4'>
+                              <p>Task Name</p>
+                            </div>
+                            <div className='col-span-2'>
+                              <p className='ml-3'>Created by</p>
+                            </div>
+                            <div className='col-span-1 ml-2'>
+                              <p>Priority</p>
+                            </div>
+                            <div className='col-span-1 ml-5'>
+                              <p>Date</p>
+                            </div>
                         </div>
                         <div className='h-[450px] overflow-y-auto'>
                             {currentTodos.map(todo => (
@@ -179,8 +189,8 @@ const Dashboard = () => {
                     <div className='xs:my-5 xl:my-3 2xl:my-2'></div>
 
                     <ContentBox title="Activity Feed">
-                      <div className='xl:h-[280px] 2xl:h-[245px] px-3 overflow-y-auto'>
-                      <div className='flex items-start justify-between py-3 border-b border-stroke'>
+                      <div className='xs:h-[300px] xl:h-[280px] 2xl:h-[245px] px-3 overflow-y-auto'>
+                      <div className='flex items-start justify-start md:gap-3 py-3 border-b border-stroke'>
                         <img src={pro1} alt="" />
                         <div className='ml-3'>
                           <p className='text-base'><span className='font-semibold'>Kushantha Charuka</span> created <span className='text-text_pink'>Contract #00124 need John Beige’s signature</span></p>

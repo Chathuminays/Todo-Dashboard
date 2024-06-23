@@ -14,8 +14,8 @@ const SideBar = () => {
   return (
     <>
         <div className={`xs:w-64 md:w-64 xl:w-56 2xl:w-64 z-30 bg-purple fixed h-full xs:mt-0 lg:mt-0 transition-transform duration-300 ${isOpen ? 'transform-none' : '-translate-x-full'} lg:translate-x-0`}>
-            <div className={`w-12 h-12 rounded-tr-xl rounded-br-xl bg-purple absolute top-4 -right-12 flex items-center justify-center ${isOpen ? 'block' : 'hidden'}`}>
-              <IoIosClose className='w-8 h-8 text-white cursor-pointer' onClick={handleClose}/>
+            <div className= 'w-6 h-6 rounded-lg bg-purple absolute top-2 right-2 flex items-center justify-center lg:hidden'>
+              <IoIosClose className='w-6 h-6 text-white cursor-pointer' onClick={handleClose}/>
             </div>
             
             <div className='h-20 bg-purple_light flex items-center justify-center'>
