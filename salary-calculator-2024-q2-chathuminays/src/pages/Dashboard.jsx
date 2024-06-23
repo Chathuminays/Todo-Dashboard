@@ -22,37 +22,45 @@ const Dashboard = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const todosPerPage = 8;
 
+  // Function to close the welcome message
   const handleClose = () => {
     setIsVisible(false);
   };
 
+  // Fetch todo tasks from API end-point
   useEffect(() => {
     const fetchTodos = async () => {
       try {
         const response = await axios.get('https://6363c8f68a3337d9a2e7d805.mockapi.io/api/to-do');
         setTodos(response.data);
+
       } catch (error) {
-        console.error('Error fetching the to-do list:', error);
+        console.error('Error fetching to-do tasks:', error);
       }
     };
 
     fetchTodos();
   }, []);
 
+  // Function to format date in 'MMM DD' format
   const formatDate = (isoDate) => {
     const date = new Date(isoDate);
     return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
   };
 
+  // Pagination calculations
   const indexOfLastTodo = currentPage * todosPerPage;
   const indexOfFirstTodo = indexOfLastTodo - todosPerPage;
   const currentTodos = todos.slice(indexOfFirstTodo, indexOfLastTodo);
 
+  // Function to handle pagination
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
 
+  // Calculate total number of pages needed for pagination
   const totalPages = Math.ceil(todos.length / todosPerPage);
+
   const getPageNumbers = () => {
     const maxPageNumbersToShow = 3;
     let startPage = Math.max(currentPage - 1, 1);
@@ -70,6 +78,7 @@ const Dashboard = () => {
     return pageNumbers;
   };
 
+  // Calculate counts of todos by priority
   const calculatePriorityCounts = () => {
     let lowCount = 0;
     let mediumCount = 0;
@@ -104,6 +113,7 @@ const Dashboard = () => {
 
         <div className='bg-background lg:ml-64 xl:ml-56 2xl:ml-64 h-full xs:px-5 xl:px-2 2xl:px-5 py-5'>
           
+          {/* Welcome Message */}
           {isVisible && (
               <div className='bg-white border border-stroke px-5 py-4 relative rounded-lg mb-5'>
                   <h3 className='font-semibold xs:text-2xl xl:text-xl 2xl:text-2xl mb-1'>Welcome back, John Doe</h3>
@@ -116,6 +126,7 @@ const Dashboard = () => {
 
             <div className='grid grid-cols-5'>
 
+                {/* Creating a ContentBox Component for display to-do tasks */}
                 <div className='xs:col-span-5 xl:col-span-3 pb-2 xl:pr-0 2xl:pr-3'>
                     <ContentBox title="Tasks">
                         <div className='h-12 bg-bg_grey border-b border-stroke xs:hidden md:grid grid-cols-9 items-center px-3 text-xs font-medium'>
@@ -186,12 +197,14 @@ const Dashboard = () => {
 
                 <div className='xs:col-span-5 xl:col-span-2 pb-2 xl:pl-2 xs:mt-5 xl:mt-0'>
 
+                    {/* Creating a ContentBox Component for display Bar Chart with taks priorities. */}
                     <ContentBox title="Tasks Priorities">
                         <BarChart lowCount={lowCount} mediumCount={mediumCount} highCount={highCount}/>
                     </ContentBox>
 
                     <div className='xs:my-5 xl:my-3 2xl:my-2'></div>
 
+                    {/* Creating a ContentBox Component for display activity feed. */}
                     <ContentBox title="Activity Feed">
                       <div className='xs:h-[300px] xl:h-[280px] 2xl:h-[245px] px-3 overflow-y-auto'>
                         <ActivityItem

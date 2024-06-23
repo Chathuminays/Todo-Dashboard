@@ -1,7 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
-import SideBar from './components/SideBar';
-import Header from './components/Header';
 import { SidebarProvider } from './context/SidebarContext';
 import Dashboard from './pages/Dashboard';
 

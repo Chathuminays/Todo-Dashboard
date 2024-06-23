@@ -6,6 +6,7 @@ import { useSidebar } from '../context/SidebarContext';
 
 const Header = () => {
 
+  // Using custom hook from SidebarContext to manage sidebar state
   const { isOpen, toggleSidebar } = useSidebar();
 
   return (
@@ -17,6 +18,7 @@ const Header = () => {
                 </div>
                 <h4 className='font-semibold text-xl xs:ml-2 lg:ml-0'>Dashboard</h4>
             </div>
+            
             <div className='flex items-center gap-8'>
                 <FaRegBell />
                 <div className='flex items-center gap-2'>
