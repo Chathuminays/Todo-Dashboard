@@ -22,8 +22,9 @@ const InProgressTodo = ({ todo, priority, createdBy, date }) => {
         <div className='min-h-12 bg-white border-b border-stroke px-3 py-2 xs:hidden md:grid items-center grid-cols-9 md:text-sm xl:text-xs 2xl:text-sm'>
             <div className='col-span-1 relative inline-block group ml-3'>
                 <img src={in_progress} alt="" className='cursor-pointer'/>
-                <div className="absolute -left-6 flex items-center justify-center opacity-0 group-hover:opacity-100 bg-white border border-[#EAECF0] rounded-full transition-opacity duration-300 ease-in-out">
+                <div className="absolute mt-2 -left-6 flex items-center justify-center opacity-0 group-hover:opacity-100 bg-white border border-[#EAECF0] rounded-full transition-opacity duration-300 ease-in-out">
                     <span className="text-text_yellow text-center text-xs p-1 m-1 rounded-full bg-bg_yellow">In Progress</span>
+                    <div className='w-0 h-0 border-l-8 border-l-transparent border-r-8 border-r-transparent border-b-8 border-b-stroke absolute bottom-8 -translate-x-1'></div>
                 </div>
             </div>
             <div className='col-span-4'>
@@ -35,8 +36,8 @@ const InProgressTodo = ({ todo, priority, createdBy, date }) => {
             <div className='col-span-2 ml-2'>
                 <p>{createdBy}</p>
             </div>
-            <div className={`col-span-1 text-center ${priorityClass} md:py-2 xl:py-1 2xl:py-2 flex items-center justify-center xl:text-[10px] md:text-xs 2xl:text-xs rounded-full`}>
-                <p>{priority}</p>
+            <div className={`col-span-1 text-center flex items-center justify-center xl:text-[10px] md:text-xs 2xl:text-xs`}>
+                <p className={`font-medium ${priorityClass} rounded-full p-2`} >{priority}</p>
             </div>
             <div className='col-span-1 text-text_grey ml-5'>
                 <p>{date}</p>
