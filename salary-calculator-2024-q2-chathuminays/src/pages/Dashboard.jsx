@@ -117,8 +117,8 @@ const Dashboard = () => {
                         <div className='h-12 bg-bg_grey border-b border-stroke flex items-center px-3 text-xs font-medium'>
                             <p className='w-5 mr-10'>Status</p>
                             <p className='md:w-80 xl:w-48 2xl:w-80 md:mr-8 xl:mr-3 2xl:mr-8'>Task Name</p>
-                            <p className='md:w-32 xl:w-20 xl:mr-3 md:mr-5 2xl:w-32 2xl:mr-5'>Created by</p>
-                            <p className='w-14 mr-8'>Priority</p>
+                            <p className='md:w-32 xl:w-20 xl:mr-3 md:mr-5 2xl:w-32 2xl:mr-5 -translate-x-5'>Created by</p>
+                            <p className='w-14 mr-8 -translate-x-5'>Priority</p>
                             <p>Date</p>
                         </div>
                         <div className='h-[450px] overflow-y-auto'>
